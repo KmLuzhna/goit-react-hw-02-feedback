@@ -12,15 +12,21 @@ export class App extends Component {
 
 
   onButtonClick = feedback => {
-    if (feedback === 'good') {
-      this.setState({ good: this.state.good + 1 });
-    }
-    if (feedback === 'neutral') {
-      this.setState({ neutral: this.state.neutral + 1 });
-    }
-    if (feedback === 'bad') {
-      this.setState({ bad: this.state.bad + 1 });
-    }
+    this.setState(prevState => {
+      return {
+        [feedback]: prevState[feedback]+1
+      }
+    })
+
+    // if (feedback === 'good') {
+    //   this.setState({ good: this.state.good + 1 });
+    // }
+    // if (feedback === 'neutral') {
+    //   this.setState({ neutral: this.state.neutral + 1 });
+    // }
+    // if (feedback === 'bad') {
+    //   this.setState({ bad: this.state.bad + 1 });
+    // }
   };
 
    countTotalFeedback = () => {
